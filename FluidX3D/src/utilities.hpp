@@ -13,6 +13,7 @@
 #pragma warning(disable : 6386)
 #include <cmath>
 #include <vector>
+#include <sstream>
 #ifdef UTILITIES_REGEX
 #include <regex> // contains <string>, <vector>, <algorithm> and others
 #else						 // UTILITIES_REGEX
@@ -5885,6 +5886,91 @@ inline Mesh *read_stl(const string &path, const float3 &box_size, const float3 &
 inline Mesh *read_stl(const string &path, const float3 &box_size, const float3 &center, const float size)
 { // read binary .stl file (no rotation)
 	return read_stl(path, box_size, center, float3x3(1.0f), size);
+}
+
+struct Triangle
+{
+	float3 a;
+	float3 b;
+	float3 c;
+};
+
+inline std::vector<std::string> splitString(const std::string &str, char delimiter)
+{
+	std::vector<std::string> tokens;
+	std::istringstream iss(str);
+	std::string token;
+
+	while (std::getline(iss, token, delimiter))
+	{
+		tokens.push_back(token);
+	}
+
+	return tokens;
+}
+
+inline uchar *read_file_from_path(const string &path)
+{
+	const string filename = create_file_extension(path, ".txt");
+	std::ifstream file(filename, std::ios::in | std::ios::binary);
+	if (file.fail())
+		println("\rError: File \"" + filename + "\" does not exist!");
+	file.seekg(0, std::ios::end);
+	const uint filesize = (uint)file.tellg();
+	file.seekg(0, std::ios::beg);
+	uchar *data = new uchar[filesize];
+	file.read((char *)data, filesize);
+	file.close();
+	if (filesize == 0u)
+		println("\rError: File \"" + filename + "\" is corrupt!");
+
+	return data;
+}
+
+inline Mesh *read_array_representation(uchar *data, const float3 &box_size, const float3 &center, const float3x3 &rotation, const float size)
+{
+	vector<string> triangles = splitString((char *)data, '|');
+	const uint triangle_number = triangles.size();
+
+	Mesh *mesh = new Mesh(triangle_number, center);
+	mesh->p0[0] = float3(0.0f); // to fix warning C6001
+	for (uint i = 0u; i < triangle_number; i++)
+	{
+		string currentTriangle = triangles[i];
+		vector<string> vertices = splitString(currentTriangle, ',');
+
+		mesh->p0[i] = rotation * float3(stof(vertices[0]), stof(vertices[1]), stof(vertices[2]));
+		mesh->p1[i] = rotation * float3(stof(vertices[3]), stof(vertices[4]), stof(vertices[5]));
+		mesh->p2[i] = rotation * float3(stof(vertices[6]), stof(vertices[7]), stof(vertices[8]));
+	}
+	delete[] data;
+
+	mesh->find_bounds();
+	const float3 offset = -0.5f * (mesh->pmin + mesh->pmax); // auto-rescale mesh
+	float scale = 1.0f;
+	if (size == 0.0f)
+	{ // auto-rescale to largest possible size
+		const float scale_x = box_size.x / (mesh->pmax.x - mesh->pmin.x);
+		const float scale_y = box_size.y / (mesh->pmax.y - mesh->pmin.y);
+		const float scale_z = box_size.z / (mesh->pmax.z - mesh->pmin.z);
+		scale = fmin(fmin(scale_x, scale_y), scale_z);
+	}
+	else if (size > 0.0f)
+	{ // rescale to specified size relative to box
+		scale = size / fmax(fmax(mesh->pmax.x - mesh->pmin.x, mesh->pmax.y - mesh->pmin.y), mesh->pmax.z - mesh->pmin.z);
+	}
+	else
+	{ // rescale to specified size relative to original size (input size as negative number)
+		scale = -size;
+	}
+	for (uint i = 0u; i < triangle_number; i++)
+	{ // rescale mesh
+		mesh->p0[i] = center + scale * (offset + mesh->p0[i]);
+		mesh->p1[i] = center + scale * (offset + mesh->p1[i]);
+		mesh->p2[i] = center + scale * (offset + mesh->p2[i]);
+	}
+	mesh->find_bounds();
+	return mesh;
 }
 
 class Configuration_File

@@ -29,8 +29,9 @@ void main_setup()
 	const float size = Width / 1.5;
 	const float3 center = float3(lbm.center().x, lbm.center().y, lbm.center().z);
 	const float3x3 rotation = float3x3(float3(1, 0, 0), radians(0.0f));
-	lbm.voxelize_stl(get_exe_path() + "../stl/coke.stl", center, rotation, size);
-	// Custom function to read stl
+
+	uchar *data = read_file_from_path(get_exe_path() + "../mesh_test.txt");
+	lbm.voxelize_array_representation(data, center, rotation, size);
 
 	// getN
 	const ulong N = lbm.get_N();
