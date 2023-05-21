@@ -30,6 +30,7 @@ void main_setup()
 	const float3 center = float3(lbm.center().x, lbm.center().y, lbm.center().z);
 	const float3x3 rotation = float3x3(float3(1, 0, 0), radians(0.0f));
 	lbm.voxelize_stl(get_exe_path() + "../stl/coke.stl", center, rotation, size);
+	// Custom function to read stl
 
 	// getN
 	const ulong N = lbm.get_N();
@@ -53,7 +54,7 @@ void main_setup()
 					y > Length / 2 - radius && y < Length / 2 + radius)
 			{
 				lbm.flags[n] = TYPE_F; // make everything under height value fluidz>10u && z < Nz - 10u
-				// lbm.phi[n] = 1;
+															 // lbm.phi[n] = 1;
 			}
 		}
 
