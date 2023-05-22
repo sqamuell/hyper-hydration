@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.kit": "html",
+    "*.de": "html",
+    "*.en": "html",
+    "istream": "cpp",
+    "string": "cpp",
+    "xstring": "cpp",
+    "vector": "cpp",
+    "cmath": "cpp"
+  }
+}
