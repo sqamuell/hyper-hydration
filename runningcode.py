@@ -29,7 +29,11 @@ topVerticesInner = [PointsInCircum(radius,(numLevels + 1) * stepBetweenLevels,nu
 variableVerticesInner = []
 
 #this is what needs to be changed
-offsetList = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+offsetList = [
+    \
+    0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+    \
+    ]
  
 if len(offsetList) != numLevels * numPtsOnLevel:
     print("Incorrect number of points! Will crash!")
