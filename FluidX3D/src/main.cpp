@@ -72,7 +72,7 @@ void main_graphics() {
 #endif // GRAPHICS
 
 void main_physics() {
-	info.print_logo();
+//	info.print_logo();
 	main_setup(); // execute setup
 	running = false;
 	exit(0); // make sure that the program stops

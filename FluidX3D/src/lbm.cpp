@@ -1164,9 +1164,27 @@ int *LBM::Graphics::draw_frame()
 	}
 #endif // UPDATE_FIELDS
 	for (uint d = 0u; d < lbm->get_D(); d++)
+	{
 		lbm->lbm[d]->graphics.enqueue_draw_frame();
+	}
 	for (uint d = 0u; d < lbm->get_D(); d++)
 		lbm->lbm[d]->finish_queue();
+
+	lbm->lbm[0]->phi.read_from_device();
+	int timestep = lbm->lbm[0]->get_t();
+
+	float values = 0;
+
+	for (int i = 256 * 128 - 128 + 256 * 256 * 45; i < 256 * 256 * 256; i++)
+	{
+		values += lbm->lbm[0]->phi[i];
+	}
+
+	if (values > 1000)
+	{
+		println(to_string(timestep) + " | " + to_string(values));
+	}
+
 	int *bitmap = lbm->lbm[0]->graphics.get_bitmap();
 	int *zbuffer = lbm->lbm[0]->graphics.get_zbuffer();
 	for (uint d = 1u; d < lbm->get_D(); d++)
