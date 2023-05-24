@@ -1,0 +1,17 @@
+  Iter  Cycle  Action             Objective value      Time      Gap
+  ----  -----  ------             ---------------      ----      ---
+     0      0  Initialization        10014.000000   1446.07   100.00  
+     0      0  Initialization         9007.000000   1446.07   100.00  
+     0      0  Initialization         7688.000000   1446.07   100.00  
+     0      0  Initialization         8433.000000   1446.07   100.00  
+     0      0  Initialization         8923.000000   1446.07   100.00  
+     0      0  Initialization        10235.000000   1446.07   100.00  
+     0      0  Initialization         7770.000000   1446.07   100.00  
+     0      0  Initialization         7622.000000   1446.07   100.00  
+     0      0  Initialization         8772.000000   1446.07   100.00  
+     0      0  Initialization         9506.000000   1446.07   100.00  
+     0      0  Initialization         8290.000000   1446.07   100.00  
+     0      0  Initialization         6570.000000   1446.07   100.00  
+     0      0  Initialization         5948.000000   1446.07   100.00 *
+     0      0  GlobalStep            10354.000000   1577.83   100.00  
+     1      0  GlobalStep            10363.000000   1702.18   100.00  

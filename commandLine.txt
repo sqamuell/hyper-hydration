@@ -43,24 +43,24 @@
         
 //         RBFOpt 
 
-//         --minlp_solver_path C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\bonmin.exe\ 
+//         --minlp_solver_path C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\bonmin.exe\ 
         
-//         --nlp_solver_path C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe\ 
+//         --nlp_solver_path C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe\ 
         
 //         --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic
         
-//         --log C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOpt_log.txt\
+//         --log C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOpt_log.txt\
         
 //         --save_state_interval 10
         
-//         --save_state_file C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\log.txt\
+//         --save_state_file C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\log.txt\
 		
         
 //         //
         
 'RBFOptWeightedSum', 'RBFOpt', 'CMAES', 'NSGAII', 'NSPSO', 'MOEAD', 'MACO', 'RBFOptModel', 'Hyper'
 
-mopossum.exe --objective_n 1 --param "4;0;8;4;0;8;7;0;8;3;0;8;1" RBFOpt --minlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\\bonmin.exe" --nlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic --log "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOpt_log.txt" --save_state_interval 10 --save_state_file "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOptStatelog.txt"
+.\mopossum.exe --objective_n 1 --param "30;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5;0;1;0.5" RBFOpt --minlp_solver_path "C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\\bonmin.exe" --nlp_solver_path "C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic --log "C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOpt_log.txt" --save_state_interval 10 --save_state_file "C:\Users\corne\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\RBFOptStatelog.txt"
 
 mopossum.exe --objective_n 1 --param "4;0;8;4;0;8;7;0;8;3;0;8;1" CMAES
 
