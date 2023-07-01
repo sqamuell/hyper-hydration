@@ -1,43 +1,6 @@
-// if (!_settings.ContainsKey(preset))
-// 		{
-// 			return false;
-// 		}
-// 		Settings settings = _settings[preset];
-// 		input_GH_IO.Component.IsHypervolumeDisplayed = false;
-// 		string text = "937627691";
-// 		if (settings.Randomize)
-// 		{
-// 			Random random = new Random();
-// 			text = random.Next(100000000, 1000000000).ToString();
-// 		}
-// 		string expertSettings = OptLoop.ExpertSettings;
-// 		int maxIterMax = OptLoop.MaxIterMax;
-// 		int maxIter = OptLoop.MaxIterMax;
-// 		if (OptLoop.BolUseExpertSettings)
-// 		{
-// 			maxIter = int.Parse(Regex.Match(expertSettings, "(?<=[\\-\\-max_interations] )\\d+").Value);
-// 		}
-// 		if (OptLoop.BolMaxIter & !OptLoop.BolUseExpertSettings)
-// 		{
-// 			Regex.Replace(expertSettings, "(?<=[\\-\\-max_interations] )\\d+", maxIterMax.ToString());
-// 		}
-// 		OptLoop.BolMaxIter = true;
-// 		OptLoop.MaxIter = maxIter;
-// 		if (expertSettings.Contains("target_objval"))
-// 		{
-// 			OptLoop.BolTargetObjVal = true;
-// 			OptLoop.TargetObjVal = double.Parse(Regex.Match(expertSettings, "(?<=[\\-\\-target_objval] )\\d+").Value);
-// 		}
-// 		Debug.WriteLine("MZ RBFOpt opossumSettings -> " + expertSettings);
-// 		if (OptLoop.BolMaxIter & !OptLoop.BolUseExpertSettings)
-// 		{
-// 			int maxIter2 = OptLoop.MaxIter;
-// 			Regex.Replace(expertSettings, "(?<=[\\-\\-max_interations] )\\d+", maxIter2.ToString());
-// 		}
-// 		Debug.WriteLine("MZ RBFOpt opossumSettings -> " + expertSettings);
+
 		
-		
-        
+      
 
 //         --param "2;0;8;2;0;8;3"
         
@@ -75,3 +38,8 @@ mopossum.exe --objective_n 1 --param "4;0;8;4;0;8;7;0;8;3;0;8;1" MOEAD
 mopossum.exe --objective_n 1 --param "4;0;8;4;0;8;7;0;8;3;0;8;1" MACO
 
 mopossum.exe --objective_n 1 --param "4;0;8;4;0;8;7;0;8;3;0;8;1" RBFOptModel
+
+
+python rbfopt_cl_interface.py --minlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\\bonmin.exe" --nlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic 
+
+python rbfopt_cl_interface.py --minlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\\bonmin.exe" --nlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic rbfopt_black_box_example.py
