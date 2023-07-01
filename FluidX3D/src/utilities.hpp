@@ -5841,8 +5841,8 @@ inline Mesh *read_stl(const string &path, const float3 &box_size, const float3 &
 		println("\rError: File \"" + filename + "\" is corrupt!");
 	const uint triangle_number = ((uint *)data)[20];
 	uint counter = 84u;
-	if (triangle_number > 0u && filesize == 84u + 50u * triangle_number)
-		println("Loading \"" + filename + "\" with " + to_string(triangle_number) + " triangles.");
+	if (triangle_number > 0u && filesize == 84u + 50u * triangle_number) {}
+		//println("Loading \"" + filename + "\" with " + to_string(triangle_number) + " triangles.");
 	else
 		println("\rError: File \"" + filename + "\" is corrupt or unsupported! Only binary .stl files are supported.");
 	Mesh *mesh = new Mesh(triangle_number, center);

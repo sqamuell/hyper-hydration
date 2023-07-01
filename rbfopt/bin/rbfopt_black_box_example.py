@@ -182,7 +182,7 @@ class RbfoptBlackBox(rbfopt.RbfoptBlackBox):
 
         
         self.itercount += 1
-        return np.sum(x)**2        
+        return result.returncode        
     # -- end function
 
     def create_bottle(self, x, numIter):

@@ -79,16 +79,16 @@ struct Device_Info {
 
 string get_opencl_c_code(); // implemented in kernel.hpp
 inline void print_device_info(const Device_Info& d) { // print OpenCL device info
-	println("\r|----------------.------------------------------------------------------------|");
-	println("| Device ID      | "+alignl(58, to_string(d.id)        )+" |");
-	println("| Device Name    | "+alignl(58, d.name                 )+" |");
-	println("| Device Vendor  | "+alignl(58, d.vendor               )+" |");
-	println("| Device Driver  | "+alignl(58, d.driver_version       )+" |");
-	println("| OpenCL Version | "+alignl(58, d.opencl_c_version     )+" |");
-	println("| Compute Units  | "+alignl(58, to_string(d.compute_units)+" at "+to_string(d.clock_frequency)+" MHz ("+to_string(d.cores)+" cores, "+to_string(d.tflops, 3)+" TFLOPs/s)")+" |");
-	println("| Memory, Cache  | "+alignl(58, to_string(d.memory)+" MB, "+to_string(d.global_cache)+" KB global / "+to_string(d.local_cache)+" KB local")+" |");
-	println("| Buffer Limits  | "+alignl(58, to_string(d.max_global_buffer)+" MB global, "+to_string(d.max_constant_buffer)+" KB constant")+" |");
-	println("|----------------'------------------------------------------------------------|");
+	//println("\r|----------------.------------------------------------------------------------|");
+	//println("| Device ID      | "+alignl(58, to_string(d.id)        )+" |");
+	//println("| Device Name    | "+alignl(58, d.name                 )+" |");
+	//println("| Device Vendor  | "+alignl(58, d.vendor               )+" |");
+	//println("| Device Driver  | "+alignl(58, d.driver_version       )+" |");
+	//println("| OpenCL Version | "+alignl(58, d.opencl_c_version     )+" |");
+	//println("| Compute Units  | "+alignl(58, to_string(d.compute_units)+" at "+to_string(d.clock_frequency)+" MHz ("+to_string(d.cores)+" cores, "+to_string(d.tflops, 3)+" TFLOPs/s)")+" |");
+	//println("| Memory, Cache  | "+alignl(58, to_string(d.memory)+" MB, "+to_string(d.global_cache)+" KB global / "+to_string(d.local_cache)+" KB local")+" |");
+	//println("| Buffer Limits  | "+alignl(58, to_string(d.max_global_buffer)+" MB global, "+to_string(d.max_constant_buffer)+" KB constant")+" |");
+	//println("|----------------'------------------------------------------------------------|");
 }
 inline vector<Device_Info> get_devices(const bool print_info=true) { // returns a vector of all available OpenCL devices
 	vector<Device_Info> devices; // get all devices of all platforms
@@ -107,11 +107,11 @@ inline vector<Device_Info> get_devices(const bool print_info=true) { // returns 
 	if((uint)cl_platforms.size()==0u||(uint)devices.size()==0u) {
 		print_error("There are no OpenCL devices available. Make sure that the OpenCL 1.2 Runtime for your device is installed. For GPUs it comes by default with the graphics driver, for CPUs it has to be installed separately.");
 	}
-	if(print_info) {
-		println("\r|----------------.------------------------------------------------------------|");
-		for(uint i=0u; i<(uint)devices.size(); i++) println("| Device ID "+alignr(4u, i)+" | "+alignl(58u, devices[i].name)+" |");
-		println("|----------------'------------------------------------------------------------|");
-	}
+	//if(print_info) {
+	//	println("\r|----------------.------------------------------------------------------------|");
+	//	for(uint i=0u; i<(uint)devices.size(); i++) println("| Device ID "+alignr(4u, i)+" | "+alignl(58u, devices[i].name)+" |");
+	//	println("|----------------'------------------------------------------------------------|");
+	//}
 	return devices;
 }
 inline Device_Info select_device_with_most_flops(const vector<Device_Info>& devices=get_devices()) { // returns device with best floating-point performance
@@ -183,7 +183,7 @@ public:
 		if((uint)log.length()>2u) print_warning(log); // print build log
 #endif // LOG
 		if(error) print_error("OpenCL C code compilation failed with error code "+to_string(error)+". Make sure there are no errors in kernel.cpp.");
-		else print_info("OpenCL C code successfully compiled.");
+		//else print_info("OpenCL C code successfully compiled.");
 #ifdef PTX // generate assembly (ptx) file for OpenCL code
 		write_file("bin/kernel.ptx", cl_program.getInfo<CL_PROGRAM_BINARIES>()[0]); // save binary (ptx file)
 #endif // PTX
