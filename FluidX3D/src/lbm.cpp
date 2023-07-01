@@ -1177,19 +1177,18 @@ int *LBM::Graphics::draw_frame()
 
 	cum_values = 0;
 
-	for (int i = 256 * 128 - 128 + 256 * 256 * 45; i < 256 * 256 * 256; i++)
+	for (int i = 256 * 128 - 128 + 256 * 256 * 33; i < 256 * 256 * 256; i++)
 	{
 		cum_values += lbm->lbm[0]->phi[i];
 	}
 
-	//if (cum_values > 1000)
+	// if (cum_values > 1000)
 	//{
-		//println(to_string(timestep) + " | " + to_string(cum_values));
-	//h}
-	if (cum_values < 94900)
+	// println(to_string(timestep) + " | " + to_string(cum_values));
+	// h}
+	if (cum_values < 5000)
 	{
 		exit(timestep);
-
 	}
 
 	int *bitmap = lbm->lbm[0]->graphics.get_bitmap();

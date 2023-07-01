@@ -18,8 +18,8 @@ def PointsInCircum(r, z, n=15):
     return np.array(points)
 
 
-def create_bottle(offsets: np.ndarray, filename: str) -> None:
-    temp_file = filename + "_pretty" + ".stl"
+def create_bottle(offsets: np.ndarray, filename: str) -> str:
+    temp_file = "../bottles/" + filename + "_pretty" + ".stl"
     output_file = filename + ".stl"
 
     crvs = [curve_factory.cubic_curve(PointsInCircum(0.3, 0, 6), boundary=4)]
@@ -52,7 +52,7 @@ def create_bottle(offsets: np.ndarray, filename: str) -> None:
     bpy.ops.object.delete()
 
     bpy.ops.import_mesh.stl(filepath=temp_file)
-    bpy.ops.import_mesh.stl(filepath="cylinder_top.stl")
+    bpy.ops.import_mesh.stl(filepath="../cylinder_top.stl")
 
     # Iterate through all objects in the scene
     for obj in bpy.context.scene.objects:
@@ -65,6 +65,8 @@ def create_bottle(offsets: np.ndarray, filename: str) -> None:
     bpy.ops.object.mode_set(mode="EDIT")
     bpy.ops.mesh.select_all(action="SELECT")
     bpy.ops.mesh.remove_doubles(threshold=0.01)
+
+    bpy.ops.mesh.normals_make_consistent(inside=False)
 
     bpy.ops.object.mode_set(mode="OBJECT")
 
@@ -84,4 +86,6 @@ def create_bottle(offsets: np.ndarray, filename: str) -> None:
 
     bpy.ops.object.modifier_apply(modifier=modifier.name)
 
-    bpy.ops.export_mesh.stl(filepath=output_file, use_selection=True)
+    bpy.ops.export_mesh.stl(filepath="../mesh_data/" + output_file, use_selection=True)
+
+    return output_file
