@@ -30,8 +30,10 @@ void main_setup()
 	const float3 center = float3(lbm.center().x, lbm.center().y, lbm.center().z);
 	const float3x3 rotation = float3x3(float3(1, 0, 0), radians(0.0f));
 
-	uchar *data = read_file_from_path(get_exe_path() + "../mesh_test.txt");
-	lbm.voxelize_array_representation(data, center, rotation, size);
+	// uchar *data = read_file_from_path(get_exe_path() + "../../mesh_data/mesh_1684883268_4686296.bottle");
+	// lbm.voxelize_array_representation(data, center, rotation, size);
+
+	lbm.voxelize_stl(get_exe_path() + "../../mesh_data/" + main_arguments[0], center, rotation, size);
 
 	// getN
 	const ulong N = lbm.get_N();
@@ -62,6 +64,10 @@ void main_setup()
 		if (x == 0u || x == Nx - 1u || y == 0u || y == Ny - 1u || z == 0u || z == Nz - 1u)
 			lbm.flags[n] = TYPE_E;
 
+		// if (n == 256 * 128 - 128 + 256 * 256 * 45)
+		// {
+		// 	lbm.flags[n] = TYPE_F;
+		// }
 		// if (z < 100 && z> 60 && x>10u && x < Nx - 10u && y>10u && y < Ny - 10u)
 		//{
 		//	lbm.flags[n] = TYPE_F; //make everything under height value fluidz>10u && z < Nz - 10u
@@ -75,5 +81,51 @@ void main_setup()
 		//	lbm.flags[n] = TYPE_S;
 		// }
 	}
+
+// while (lbm.get_t() <= 60u * 60u * 30u)
+// {
+// 	// lbm.graphics.set_camera_free(float3(-1.435962f*(float)Nx, 0.364331f*(float)Ny, 1.344426f*(float)Nz), -205.0f, 36.0f, 74.0f); // top
+// 	// lbm.graphics.write_frame_png(get_exe_path()+"export/top/");
+// 	// lbm.graphics.set_camera_free(float3(-1.021207f*(float)Nx, -0.518006f*(float)Ny, 0.0f*(float)Nz), -137.0f, 0.0f, 74.0f); // bottom
+// 	// lbm.graphics.write_frame_png(get_exe_path()+"export/bottom/");// 	int length = lbm.get_N();
+
+// 	lbm.phi.read_from_device();
+// 	// reverse_bytes(lbm. reference(i, d));
+
+// 	float flag = lbm.phi[256 * 128 - 128 + 256 * 256 * 45];// 	lbm.run(30u);
+// }
+
+// For interactive:
+#ifdef INTERACTIVE_GRAPHICS
 	lbm.run();
+
+	// For comparable:
+
+#else
+	bool isRunning = true;
+
+	while (isRunning)
+	{
+		lbm.phi.read_from_device();
+		int timestep = lbm.get_t();
+
+		float values = 0;
+
+		for (int i = 256 * 128 - 128 + 256 * 256 * 45; i < 256 * 256 * 256; i++)
+		{
+			values += lbm.phi[i];
+		}
+
+		if (values < 1000 && timestep > 500)
+		{
+			isRunning = false;
+		}
+		else
+		{
+			lbm.run(10u);
+		}
+
+		// lastValues = values;
+	}
+#endif
 }

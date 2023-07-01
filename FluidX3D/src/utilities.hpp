@@ -5911,7 +5911,7 @@ inline std::vector<std::string> splitString(const std::string &str, char delimit
 
 inline uchar *read_file_from_path(const string &path)
 {
-	const string filename = create_file_extension(path, ".txt");
+	const string filename = create_file_extension(path, ".bottle");
 	std::ifstream file(filename, std::ios::in | std::ios::binary);
 	if (file.fail())
 		println("\rError: File \"" + filename + "\" does not exist!");

@@ -581,7 +581,8 @@ vector<Device_Info> smart_device_selection(const uint D)
 {
 	const vector<Device_Info> &devices = get_devices(); // a vector of all available OpenCL devices
 	vector<Device_Info> device_infos(D);
-	const int user_specified_devices = (int)main_arguments.size();
+	// const int user_specified_devices = (int)main_arguments.size();
+	const int user_specified_devices = 0;
 	if (user_specified_devices > 0)
 	{ // user has selevted specific devices as command line arguments
 		if (user_specified_devices == D)
@@ -945,8 +946,9 @@ void LBM::run(const ulong steps)
 	for (ulong i = 1ull; i <= steps; i++)
 	{
 #if defined(INTERACTIVE_GRAPHICS) || defined(INTERACTIVE_GRAPHICS_ASCII)
-		while (!key_P && running)
-			sleep(0.016);
+		// while (!key_P && running)
+		// 	sleep(0.016);
+		running = true;
 		if (!running)
 			break;
 #endif // INTERACTIVE_GRAPHICS_ASCII || INTERACTIVE_GRAPHICS
@@ -1164,9 +1166,27 @@ int *LBM::Graphics::draw_frame()
 	}
 #endif // UPDATE_FIELDS
 	for (uint d = 0u; d < lbm->get_D(); d++)
+	{
 		lbm->lbm[d]->graphics.enqueue_draw_frame();
+	}
 	for (uint d = 0u; d < lbm->get_D(); d++)
 		lbm->lbm[d]->finish_queue();
+
+	lbm->lbm[0]->phi.read_from_device();
+	int timestep = lbm->lbm[0]->get_t();
+
+	cum_values = 0;
+
+	for (int i = 256 * 128 - 128 + 256 * 256 * 45; i < 256 * 256 * 256; i++)
+	{
+		cum_values += lbm->lbm[0]->phi[i];
+	}
+
+	if (cum_values > 1000)
+	{
+		println(to_string(timestep) + " | " + to_string(cum_values));
+	}
+
 	int *bitmap = lbm->lbm[0]->graphics.get_bitmap();
 	int *zbuffer = lbm->lbm[0]->graphics.get_zbuffer();
 	for (uint d = 1u; d < lbm->get_D(); d++)

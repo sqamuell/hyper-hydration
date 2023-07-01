@@ -9,6 +9,8 @@
 string default_filename(const string &path, const string &name, const string &extension, const ulong t); // generate a default filename with timestamp
 string default_filename(const string &name, const string &extension, const ulong t);										 // generate a default filename with timestamp at exe_path/export/
 
+inline float cum_values = 0;
+
 #pragma warning(disable : 26812)
 enum enum_transfer_field
 {
