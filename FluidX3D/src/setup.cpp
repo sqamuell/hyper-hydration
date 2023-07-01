@@ -33,8 +33,8 @@ void main_setup()
 	// uchar *data = read_file_from_path(get_exe_path() + "../../mesh_data/mesh_1684883268_4686296.bottle");
 	// lbm.voxelize_array_representation(data, center, rotation, size);
 
-	lbm.voxelize_stl(get_exe_path() + "../../mesh_data/" + main_arguments[0], center, rotation, size);
-
+	//lbm.voxelize_stl(get_exe_path() + "../../mesh_data/" + main_arguments[0], center, rotation, size);
+	lbm.voxelize_stl(get_exe_path() + "../../mesh_data/mesh_1684888159_0217102_thick.stl", center, rotation, size);
 	// getN
 	const ulong N = lbm.get_N();
 	const uint Nx = lbm.get_Nx(), Ny = lbm.get_Ny(), Nz = lbm.get_Nz();
@@ -102,7 +102,7 @@ void main_setup()
 	// For comparable:
 
 #else
-	bool isRunning = true;
+	bool isRunning = true;C
 
 	while (isRunning)
 	{
@@ -115,8 +115,9 @@ void main_setup()
 		{
 			values += lbm.phi[i];
 		}
+		println(values);
 
-		if (values < 1000 && timestep > 500)
+		if (values < 5000) //&& timestep > 500
 		{
 			isRunning = false;
 		}

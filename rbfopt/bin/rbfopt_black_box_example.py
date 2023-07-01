@@ -21,6 +21,7 @@ from __future__ import absolute_import
 
 import numpy as np
 import rbfopt
+import subprocess
 
 class RbfoptBlackBox(rbfopt.RbfoptBlackBox):
     """Example of a black-box function that can be optimized. 
@@ -72,12 +73,11 @@ class RbfoptBlackBox(rbfopt.RbfoptBlackBox):
 
     """
 
-    def __init__(self, exponent=1):
+    def __init__(self):
         """Constructor.
         """
-        assert(exponent >= 0)
-        self.exponent = exponent
-
+ 
+        self.itercount = 0
         # Set required data
         self.dimension = 30
 
@@ -161,13 +161,32 @@ class RbfoptBlackBox(rbfopt.RbfoptBlackBox):
             Value of the function at x.
 
         """
-        assert(len(x) == self.dimension)
+        #bottle = self.create_bottle(x, self.itercount)
+
+        filename = "bottle_%s.stl" % str(self.itercount).replace(".", "_")
+
+        logging = "log_%s.txt" % str(self.itercount).replace(".", "_")
+
+        command = ["../../FluidX3D/bin/FluidX3D.exe", "mesh_1684888159_0217102_thick.stl"]
+
+        # Open a file for writing
+        #output_file = open("....//logs//" + logging, "w")
+
+        # Execute the command and redirect the output to the file
+        subprocess.run(command,stderr=subprocess.PIPE)
+
+        # Close the file
+        #output_file.close()
 
         
-
-        return np.sum(x)**self.exponent        
+        self.itercount += 1
+        return np.sum(x)**2        
     # -- end function
-    
+
+    def create_bottle(self, x, numIter):
+        return
+
+
     def evaluate_noisy(self, x):
         """Evaluate a noisy approximation of the black-box function.
 

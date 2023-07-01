@@ -1186,6 +1186,11 @@ int *LBM::Graphics::draw_frame()
 	{
 		println(to_string(timestep) + " | " + to_string(cum_values));
 	}
+	if (cum_values < 93000)
+	{
+		exit(EXIT_SUCCESS);
+
+	}
 
 	int *bitmap = lbm->lbm[0]->graphics.get_bitmap();
 	int *zbuffer = lbm->lbm[0]->graphics.get_zbuffer();
