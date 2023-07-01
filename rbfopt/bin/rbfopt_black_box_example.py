@@ -173,7 +173,9 @@ class RbfoptBlackBox(rbfopt.RbfoptBlackBox):
         #output_file = open("....//logs//" + logging, "w")
 
         # Execute the command and redirect the output to the file
-        subprocess.run(command,stderr=subprocess.PIPE)
+        result = subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+
+        print(result.stdout.decode("utf-8"), result.returncode)
 
         # Close the file
         #output_file.close()

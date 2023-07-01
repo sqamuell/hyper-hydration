@@ -1182,13 +1182,13 @@ int *LBM::Graphics::draw_frame()
 		cum_values += lbm->lbm[0]->phi[i];
 	}
 
-	if (cum_values > 1000)
+	//if (cum_values > 1000)
+	//{
+		//println(to_string(timestep) + " | " + to_string(cum_values));
+	//h}
+	if (cum_values < 94900)
 	{
-		println(to_string(timestep) + " | " + to_string(cum_values));
-	}
-	if (cum_values < 93000)
-	{
-		exit(EXIT_SUCCESS);
+		exit(timestep);
 
 	}
 

@@ -8,6 +8,7 @@ void main_label(const double frametime)
 	if (info.allow_rendering)
 	{
 		info.print_update();
+	
 		const int c = color(255 - red(GRAPHICS_BACKGROUND_COLOR), 255 - green(GRAPHICS_BACKGROUND_COLOR), 255 - blue(GRAPHICS_BACKGROUND_COLOR));
 		{
 			const int ox = camera.width - 37 * (FONT_WIDTH)-1, oy = camera.height - 11 * (FONT_HEIGHT)-1;
