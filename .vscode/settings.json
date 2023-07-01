@@ -8,5 +8,6 @@
     "xstring": "cpp",
     "vector": "cpp",
     "cmath": "cpp"
-  }
+  },
+  "python.analysis.typeCheckingMode": "basic"
 }
