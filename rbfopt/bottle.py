@@ -26,6 +26,10 @@ import numpy as np
 import rbfopt
 import subprocess
 
+import os
+
+os.environ["OMP_NUM_THREADS"] = "1"
+
 from create_bottle import create_bottle
 
 

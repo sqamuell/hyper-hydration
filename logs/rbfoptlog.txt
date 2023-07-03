@@ -1,5 +1,250 @@
 RbfoptSettings:
-algorithm: MSRSM, debug: False, discarded_window_size: 30, do_infstep: False, do_local_search: True, domain_scaling: auto, dynamism_clipping: auto, dynamism_threshold: 1000.0, eps_impr: 0.0001, eps_linear_dependence: 1e-06, eps_opt: 0.01, eps_zero: 1e-15, function_scaling: auto, ga_base_population_size: 400, ga_num_generations: 20, global_search_method: genetic, init_include_midpoint: True, init_sample_fraction: -1.0, init_sample_increase_parallel: 0.05, init_strategy: lhd_maximin, local_search_box_scaling: 0.5, local_search_threshold: 0.25, log_scaling_threshold: 1000000.0, max_clock_time: 1e+30, max_consecutive_refinement: 5, max_consecutive_restoration: 15, max_cross_validations: 50, max_cycles: 1000, max_evaluations: 300, max_fraction_discarded: 0.5, max_iterations: 30, max_noisy_evaluations: 200, max_noisy_iterations: 200, max_noisy_restarts: 2, max_random_init: 50, max_stalled_iterations: 100, min_dist: 1e-05, minlp_solver_path: .\bonmin.exe, modified_msrsm_score: True, nlp_solver_path: .\ipopt.exe, num_cpus: 1, num_global_searches: 5, num_samples_aux_problems: 1000, parallel_wakeup_time: 0.1, print_solver_output: False, rand_seed: 937627691, rbf: auto, rbf_shape_parameter: 0.1, ref_acceptable_decrease_enlarge: 0.6, ref_acceptable_decrease_move: 0.1, ref_acceptable_decrease_shrink: 0.2, ref_init_radius_multiplier: 2.0, ref_min_grad_norm: 0.01, ref_min_radius: 0.001, ref_num_integer_candidates: 10, refinement_frequency: 3, save_state_file: ../logs/rbfoptstate.txt, save_state_interval: 2, target_objval: -10000000000.0, targetval_clipping: True, thresh_unlimited_refinement: 0.9, thresh_unlimited_refinement_stalled: 0.9
+algorithm: MSRSM, debug: False, discarded_window_size: 30, do_infstep: False, do_local_search: True, domain_scaling: auto, dynamism_clipping: auto, dynamism_threshold: 1000.0, eps_impr: 0.0001, eps_linear_dependence: 1e-06, eps_opt: 0.01, eps_zero: 1e-15, function_scaling: auto, ga_base_population_size: 400, ga_num_generations: 20, global_search_method: genetic, init_include_midpoint: True, init_sample_fraction: -1.0, init_sample_increase_parallel: 0.05, init_strategy: lhd_maximin, local_search_box_scaling: 0.5, local_search_threshold: 0.25, log_scaling_threshold: 1000000.0, max_clock_time: 1e+30, max_consecutive_refinement: 5, max_consecutive_restoration: 15, max_cross_validations: 50, max_cycles: 1000, max_evaluations: 300, max_fraction_discarded: 0.5, max_iterations: 200, max_noisy_evaluations: 200, max_noisy_iterations: 200, max_noisy_restarts: 2, max_random_init: 50, max_stalled_iterations: 100, min_dist: 1e-05, minlp_solver_path: .\bonmin.exe, modified_msrsm_score: True, nlp_solver_path: .\ipopt.exe, num_cpus: 1, num_global_searches: 5, num_samples_aux_problems: 1000, parallel_wakeup_time: 0.1, print_solver_output: False, rand_seed: 937627691, rbf: auto, rbf_shape_parameter: 0.1, ref_acceptable_decrease_enlarge: 0.6, ref_acceptable_decrease_move: 0.1, ref_acceptable_decrease_shrink: 0.2, ref_init_radius_multiplier: 2.0, ref_min_grad_norm: 0.01, ref_min_radius: 0.001, ref_num_integer_candidates: 10, refinement_frequency: 3, save_state_file: ../logs/rbfoptstate.txt, save_state_interval: 2, target_objval: -10000000000.0, targetval_clipping: True, thresh_unlimited_refinement: 0.9, thresh_unlimited_refinement_stalled: 0.9
 
   Iter  Cycle  Action             Objective value      Time      Gap
   ----  -----  ------             ---------------      ----      ---
+     0      0  Initialization        16427.000000   1376.37   100.00  
+     0      0  Initialization        16353.000000   1376.37   100.00 *
+     0      0  Initialization        17585.000000   1376.37   100.00  
+     0      0  Initialization        18897.000000   1376.37   100.00  
+     0      0  Initialization        17858.000000   1376.37   100.00  
+     0      0  Initialization        44838.000000   1376.37   100.00  
+     0      0  Initialization        16981.000000   1376.37   100.00  
+     0      0  Initialization        26412.000000   1376.37   100.00  
+     0      0  Initialization        16689.000000   1376.37   100.00  
+     0      0  Initialization        23820.000000   1376.37   100.00  
+     0      0  Initialization        16475.000000   1376.37   100.00  
+     0      0  Initialization        16699.000000   1376.37   100.00  
+     0      0  Initialization        16524.000000   1376.37   100.00  
+     0      0  GlobalStep            16620.000000   1464.87   100.00  
+     1      0  GlobalStep            40484.000000   1668.95   100.00  
+     2      0  GlobalStep            16679.000000   1757.02   100.00  
+     3      0  GlobalStep            16734.000000   1845.69   100.00  
+     4      0  GlobalStep            16704.000000   1933.28   100.00  
+     5      0  AdjLocalStep          16887.000000   2022.36   100.00  
+     6      1  GlobalStep            16804.000000   2110.24   100.00  
+     7      1  GlobalStep            16804.000000   2197.81   100.00  
+     8      1  GlobalStep            17471.000000   2290.13   100.00  
+     9      1  GlobalStep            16550.000000   2377.68   100.00  
+    10      1  GlobalStep            16402.000000   2464.41   100.00  
+    11      1  AdjLocalStep          16538.000000   2551.65   100.00  
+    12      2  GlobalStep            16691.000000   2640.63   100.00  
+    13      2  GlobalStep            39143.000000   2837.38   100.00  
+    14      2  GlobalStep            16732.000000   2925.84   100.00  
+    15      2  GlobalStep            16673.000000   3013.53   100.00  
+    16      2  GlobalStep            16467.000000   3101.05   100.00  
+    17      2  AdjLocalStep          16360.000000   3187.28   100.00  
+    18      2  RefinementStep        16444.000000   3274.58   100.00  
+    19      2  RefinementStep        16484.000000   3361.20   100.00  
+    20      2  RefinementStep        16433.000000   3447.49   100.00  
+    21      2  RefinementStep        16360.000000   3534.26   100.00  
+    22      2  RefinementStep        16350.000000   3620.14   100.00 *
+    23      3  GlobalStep            16845.000000   3708.97   100.00  
+    24      3  GlobalStep            16932.000000   3798.38   100.00  
+    25      3  GlobalStep            17539.000000   3890.49   100.00  
+    26      3  GlobalStep            16471.000000   3977.22   100.00  
+    27      3  GlobalStep            16572.000000   4064.54   100.00  
+    28      3  AdjLocalStep          16501.000000   4151.57   100.00  
+    29      4  GlobalStep            16707.000000   4239.99   100.00  
+    30      4  GlobalStep            16908.000000   4330.86   100.00  
+    31      4  GlobalStep            16485.000000   4418.17   100.00  
+    32      4  GlobalStep            16520.000000   4505.78   100.00  
+    33      4  GlobalStep            16552.000000   4593.42   100.00  
+    34      4  AdjLocalStep          16439.000000   4680.73   100.00  
+    35      5  GlobalStep            17303.000000   4772.62   100.00  
+    36      5  GlobalStep            16572.000000   4860.77   100.00  
+    37      5  GlobalStep            16253.000000   4946.20   100.00 *
+    38      5  GlobalStep            16237.000000   5032.20   100.00 *
+    39      5  GlobalStep            16495.000000   5119.34   100.00  
+    40      5  AdjLocalStep          16351.000000   5207.26   100.00  
+    41      5  RefinementStep        16606.000000   5294.28   100.00  
+    42      5  RefinementStep        16105.000000   5379.82   100.00 *
+    43      5  RefinementStep        16085.000000   5464.96   100.00 *
+    44      5  RefinementStep        16061.000000   5550.04   100.00 *
+    45      5  RefinementStep        16302.000000   5635.51   100.00  
+    46      6  GlobalStep            17324.000000   5726.79   100.00  
+    47      6  GlobalStep            16567.000000   5814.04   100.00  
+    48      6  GlobalStep            18383.000000   5910.18   100.00  
+    49      6  GlobalStep            16575.000000   5997.27   100.00  
+    50      6  GlobalStep            16956.000000   6086.56   100.00  
+    51      6  AdjLocalStep          17193.000000   6177.23   100.00  
+    52      7  GlobalStep            16622.000000   6265.65   100.00  
+    53      7  GlobalStep            17119.000000   6355.75   100.00  
+    54      7  GlobalStep            17257.000000   6447.66   100.00  
+    55      7  GlobalStep            17657.000000   6540.79   100.00  
+    56      7  GlobalStep            17013.000000   6630.30   100.00  
+    57      7  AdjLocalStep          16423.000000   6716.42   100.00  
+    58      8  GlobalStep            48505.000000   6955.41   100.00  
+    59      8  GlobalStep            16806.000000   7044.73   100.00  
+    60      8  GlobalStep            16608.000000   7131.68   100.00  
+    61      8  GlobalStep            15845.000000   7217.06   100.00 *
+    62      8  GlobalStep            16146.000000   7301.33   100.00  
+    63      8  AdjLocalStep          16004.000000   7385.72   100.00  
+    64      8  RefinementStep        15897.000000   7469.20   100.00  
+    65      8  RefinementStep        15945.000000   7554.35   100.00  
+    66      8  RefinementStep        15751.000000   7637.32   100.00 *
+    67      8  RefinementStep        15953.000000   7721.55   100.00  
+    68      8  RefinementStep        15904.000000   7805.12   100.00  
+    69      9  GlobalStep            16556.000000   7893.19   100.00  
+    70      9  GlobalStep            16679.000000   7981.05   100.00  
+    71      9  GlobalStep            16715.000000   8068.74   100.00  
+    72      9  GlobalStep            16464.000000   8154.87   100.00  
+    73      9  GlobalStep            16188.000000   8239.80   100.00  
+    74      9  AdjLocalStep          16149.000000   8325.78   100.00  
+    75     10  GlobalStep            16889.000000   8414.89   100.00  
+    76     10  GlobalStep            16876.000000   8504.32   100.00  
+    77     10  GlobalStep            16769.000000   8592.86   100.00  
+    78     10  GlobalStep            16134.000000   8678.37   100.00  
+    79     10  GlobalStep            16197.000000   8763.86   100.00  
+    80     10  AdjLocalStep          16000.000000   8849.50   100.00  
+    81     11  GlobalStep            16800.000000   8939.86   100.00  
+    82     11  GlobalStep            17397.000000   9030.97   100.00  
+    83     11  GlobalStep            16548.000000   9118.10   100.00  
+    84     11  GlobalStep            16177.000000   9203.13   100.00  
+    85     11  GlobalStep            16187.000000   9287.96   100.00  
+    86     11  AdjLocalStep          15939.000000   9371.96   100.00  
+    87     11  RefinementStep        15834.000000   9454.94   100.00  
+    88     11  RefinementStep        15851.000000   9540.41   100.00  
+    89     11  RefinementStep        15849.000000   9624.21   100.00  
+    90     11  RefinementStep        15973.000000   9708.26   100.00  
+    91     11  RefinementStep        15753.000000   9791.66   100.00  
+    92     12  GlobalStep            16627.000000   9879.32   100.00  
+    93     12  GlobalStep            16861.000000   9968.02   100.00  
+    94     12  GlobalStep            16762.000000  10056.75   100.00  
+    95     12  GlobalStep            16148.000000  10142.43   100.00  
+    96     12  GlobalStep            16090.000000  10228.35   100.00  
+    97     12  AdjLocalStep          16137.000000  10313.32   100.00  
+    98     13  GlobalStep            16808.000000  10402.27   100.00  
+    99     13  GlobalStep            16602.000000  10488.99   100.00  
+   100     13  GlobalStep            16751.000000  10578.14   100.00  
+   101     13  GlobalStep            16352.000000  10663.61   100.00  
+   102     13  GlobalStep            16136.000000  10748.79   100.00  
+   103     13  AdjLocalStep          16059.000000  10833.65   100.00  
+   104     14  GlobalStep            17142.000000  10924.60   100.00  
+   105     14  GlobalStep            16648.000000  11012.49   100.00  
+   106     14  GlobalStep            16817.000000  11100.83   100.00  
+   107     14  GlobalStep            16040.000000  11186.46   100.00  
+   108     14  GlobalStep            16044.000000  11272.27   100.00  
+   109     14  AdjLocalStep          16170.000000  11358.55   100.00  
+   110     14  RefinementStep        16112.000000  11443.62   100.00  
+   111     14  RefinementStep        15884.000000  11528.83   100.00  
+   112     14  RefinementStep        15854.000000  11612.63   100.00  
+   113     14  RefinementStep        15827.000000  11696.18   100.00  
+   114     14  RefinementStep        15956.000000  11779.85   100.00  
+   115     15  GlobalStep            16945.000000  11869.39   100.00  
+   116     15  GlobalStep            16855.000000  11958.74   100.00  
+   117     15  GlobalStep            16499.000000  12045.06   100.00  
+   118     15  GlobalStep            16102.000000  12129.88   100.00  
+   119     15  GlobalStep            16016.000000  12214.75   100.00  
+   120     15  AdjLocalStep          16179.000000  12300.26   100.00  
+   121     16  GlobalStep            16765.000000  12390.00   100.00  
+   122     16  GlobalStep            16644.000000  12477.47   100.00  
+   123     16  GlobalStep            16506.000000  12564.11   100.00  
+   124     16  GlobalStep            15957.000000  12649.17   100.00  
+   125     16  GlobalStep            16235.000000  12734.80   100.00  
+   126     16  AdjLocalStep          16137.000000  12820.28   100.00  
+   127     17  GlobalStep            16538.000000  12909.60   100.00  
+   128     17  GlobalStep            16728.000000  13000.39   100.00  
+   129     17  GlobalStep            16582.000000  13087.64   100.00  
+   130     17  GlobalStep            16320.000000  13173.37   100.00  
+   131     17  GlobalStep            16054.000000  13257.58   100.00  
+   132     17  AdjLocalStep          16499.000000  13345.00   100.00  
+   133     17  RefinementStep        15850.000000  13428.41   100.00  
+   134     17  RefinementStep        15881.000000  13511.67   100.00  
+   135     17  RefinementStep        15842.000000  13595.09   100.00  
+   136     17  RefinementStep        15902.000000  13678.70   100.00  
+   137     17  RefinementStep        15894.000000  13762.87   100.00  
+   138     18  GlobalStep            17316.000000  13856.75   100.00  
+   139     18  GlobalStep            16845.000000  13945.76   100.00  
+   140     18  GlobalStep            16490.000000  14033.11   100.00  
+   141     18  GlobalStep            16106.000000  14118.09   100.00  
+   142     18  GlobalStep            16105.000000  14204.18   100.00  
+   143     18  AdjLocalStep          16030.000000  14290.22   100.00  
+   144     19  GlobalStep            16474.000000  14377.72   100.00  
+   145     19  GlobalStep            16641.000000  14466.23   100.00  
+   146     19  GlobalStep            16811.000000  14554.33   100.00  
+   147     19  GlobalStep            16060.000000  14638.44   100.00  
+   148     19  GlobalStep            16068.000000  14724.07   100.00  
+   149     19  AdjLocalStep          16148.000000  14809.65   100.00  
+   150     20  GlobalStep            16692.000000  14899.05   100.00  
+   151     20  GlobalStep            17015.000000  14988.82   100.00  
+   152     20  GlobalStep            16608.000000  15075.75   100.00  
+   153     20  GlobalStep            16164.000000  15161.77   100.00  
+   154     20  GlobalStep            16034.000000  15247.13   100.00  
+   155     20  AdjLocalStep          16077.000000  15332.64   100.00  
+   156     20  RefinementStep        16015.000000  15416.76   100.00  
+   157     20  RefinementStep        15901.000000  15502.18   100.00  
+   158     20  RefinementStep        15829.000000  15587.40   100.00  
+   159     20  RefinementStep        15902.000000  15671.73   100.00  
+   160     20  RefinementStep        15946.000000  15755.52   100.00  
+   161     20  RefinementStep        15945.000000  15839.86   100.00  
+   162     20  RefinementStep        15921.000000  15923.86   100.00  
+   163     21  GlobalStep            17368.000000  16017.21   100.00  
+   164     21  GlobalStep            16889.000000  16106.48   100.00  
+   165     21  GlobalStep            17613.000000  16198.70   100.00  
+   166     21  GlobalStep            16155.000000  16283.74   100.00  
+   167     21  GlobalStep            16145.000000  16368.67   100.00  
+   168     21  AdjLocalStep          16119.000000  16453.88   100.00  
+   169     21  RefinementStep        15977.000000  16538.09   100.00  
+   170     21  RefinementStep        15832.000000  16621.27   100.00  
+   171     21  RefinementStep        15825.000000  16704.87   100.00  
+   172     21  RefinementStep        15933.000000  16788.76   100.00  
+   173     21  RefinementStep        15985.000000  16875.29   100.00  
+   174     22  GlobalStep            16991.000000  16965.73   100.00  
+   175     22  GlobalStep            16887.000000  17055.75   100.00  
+   176     22  GlobalStep            16774.000000  17144.02   100.00  
+   177     22  GlobalStep            16077.000000  17228.24   100.00  
+   178     22  GlobalStep            16137.000000  17314.09   100.00  
+   179     22  AdjLocalStep          16127.000000  17400.72   100.00  
+   180     22  RefinementStep        15903.000000  17484.12   100.00  
+   181     22  RefinementStep        16038.000000  17568.48   100.00  
+   182     22  RefinementStep        15856.000000  17652.22   100.00  
+   183     22  RefinementStep        15773.000000  17735.64   100.00  
+   184     23  GlobalStep            17036.000000  17828.23   100.00  
+   185     23  GlobalStep            17117.000000  17918.16   100.00  
+   186     23  GlobalStep            16484.000000  18004.73   100.00  
+   187     23  GlobalStep            16026.000000  18089.64   100.00  
+   188     23  GlobalStep            16055.000000  18174.07   100.00  
+   189     23  AdjLocalStep          16168.000000  18259.71   100.00  
+   190     23  RefinementStep        15911.000000  18343.27   100.00  
+   191     23  RefinementStep        15897.000000  18427.14   100.00  
+   192     23  RefinementStep        16038.000000  18511.23   100.00  
+   193     23  RefinementStep        15903.000000  18595.20   100.00  
+   194     24  GlobalStep            16755.000000  18684.95   100.00  
+   195     24  GlobalStep            16481.000000  18771.75   100.00  
+   196     24  GlobalStep            17255.000000  18862.81   100.00  
+   197     24  GlobalStep            16191.000000  18948.21   100.00  
+   198     24  GlobalStep            16078.000000  19033.39   100.00  
+   199     24  AdjLocalStep          16157.000000  19119.16   100.00  
+Summary: iters 200 evals 213 noisy_evals   0 cycles  24 opt_time 19119.16 tot_time 19119.16 obj     15751.000000 gap 100.00
+RbfoptAlgorithm.optimize() returned function value 15751.000000000000000
+x0   :         0.572527
+x1   :         0.005650
+x2   :         0.014834
+x3   :         0.768888
+x4   :         0.363917
+x5   :         0.982800
+x6   :         0.145775
+x7   :         0.292553
+x8   :         0.039112
+x9   :         0.304515
+x10  :         1.000000
+x11  :         0.945095
+x12  :         0.310869
+x13  :         0.127428
+x14  :         0.003597
+x15  :         0.743752
+x16  :         0.014542
+x17  :         0.935804
+x18  :         0.137874
+x19  :         0.936675
+x20  :         0.859022
+x21  :         0.286531
+x22  :         0.550578
+x23  :         0.324319
+x24  :         0.798378
+x25  :         0.898850
+x26  :         0.988294
+x27  :         0.002322
+x28  :         0.057060
+x29  :         0.853158

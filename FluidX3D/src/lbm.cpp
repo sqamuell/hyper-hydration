@@ -1186,7 +1186,7 @@ int *LBM::Graphics::draw_frame()
 	//{
 	// println(to_string(timestep) + " | " + to_string(cum_values));
 	// h}
-	if (cum_values < 5000)
+	if (cum_values < 1000)
 	{
 		exit(timestep);
 	}

@@ -44,4 +44,4 @@ python rbfopt_cl_interface.py --minlp_solver_path "C:\Users\danhw\AppData\Roamin
 
 python rbfopt_cl_interface.py --minlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\\bonmin.exe" --nlp_solver_path "C:\Users\danhw\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\opossum\3.0.2\Solvers\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic rbfopt_black_box_example.py
 
-python rbfopt_cl_interface.py --minlp_solver_path ".\bonmin.exe" --nlp_solver_path ".\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic --max_iterations 3 --log "../logs/rbfoptlog.txt"  --save_state_interval 2 --save_state_file "../logs/rbfoptstate.txt"" bottle.py 
+python rbfopt_cl_interface.py --minlp_solver_path ".\bonmin.exe" --nlp_solver_path ".\ipopt.exe" --rand_seed 937627691 --algorithm MSRSM --global_search_method genetic --max_iterations 200 --log "../logs/rbfoptlog.txt"  --save_state_interval 2 --save_state_file "../logs/rbfoptstate.txt"" bottle.py 
