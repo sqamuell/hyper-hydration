@@ -22,7 +22,11 @@ def create_bottle(offsets: np.ndarray, filename: str) -> str:
     temp_file = "../bottles/" + filename + "_pretty" + ".stl"
     output_file = filename + ".stl"
 
-    crvs = [curve_factory.cubic_curve(PointsInCircum(0.3, 0, 6), boundary=4)]
+    crvs = [
+        curve_factory.cubic_curve(
+            PointsInCircum(offsets[-1] if offsets.size > 30 else 0.3, 0, 6), boundary=4
+        )
+    ]
     indexOffset = 0
     for i in range(1, 6):
         points = PointsInCircum(1, i, 6)
@@ -52,7 +56,28 @@ def create_bottle(offsets: np.ndarray, filename: str) -> str:
     bpy.ops.object.delete()
 
     bpy.ops.import_mesh.stl(filepath=temp_file)
-    bpy.ops.import_mesh.stl(filepath="../cylinder_top.stl")
+
+    obj = bpy.context.active_object
+
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.select_mode(type="VERT")
+    bpy.ops.mesh.select_all(action="DESELECT")
+    bpy.ops.object.mode_set(mode="OBJECT")
+
+    for i in range(2, 99):
+        obj.data.vertices[i * 100 + 1].select = True
+
+    obj.data.vertices[0].select = True
+    obj.data.vertices[3].select = True
+
+    bpy.ops.object.mode_set(mode="EDIT")
+
+    bpy.ops.mesh.extrude_edges_move(TRANSFORM_OT_translate={"value": (0, 0, -0.2)})
+
+    # bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.object.mode_set(mode="OBJECT")
+
+    bpy.ops.import_mesh.stl(filepath="../cylinder_top_nocap.stl")
 
     # Iterate through all objects in the scene
     for obj in bpy.context.scene.objects:
