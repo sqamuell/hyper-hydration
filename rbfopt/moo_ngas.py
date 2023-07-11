@@ -11,6 +11,10 @@ from pymoo.util.display.output import Output
 from pymoo.termination import get_termination
 from pymoo.visualization.scatter import Scatter
 from pymoo.core.callback import Callback
+from pymoo.algorithms.soo.nonconvex.ga import GA
+from pymoo.algorithms.moo.nsga3 import NSGA3
+from pymoo.util.ref_dirs import get_reference_directions
+from pymoo.algorithms.moo.moead import MOEAD
 
 sys.path.append("../")
 
@@ -104,6 +108,7 @@ class BottleWithOpening(ElementwiseProblem):
     def _evaluate(self, x, out, *args, **kwargs):
         self.itercount += 1
         value = evaluate_bottle(x, self.itercount)
+        # value = self.itercount
         out["F"] = np.column_stack([value, x[-1]])
 
 
@@ -134,8 +139,10 @@ class MyCallback(Callback):
 
 problem = BottleWithOpening()
 
-algorithm = NSGA2(pop_size=4)
-termination = get_termination("n_gen", 4)
+ref_dirs = get_reference_directions("das-dennis", 2, n_partitions=10)
+
+algorithm = MOEAD(ref_dirs, n_neighbors=15, prob_neighbor_mating=0.7)
+termination = get_termination("n_gen", 30)
 
 res = minimize(
     problem=problem,
@@ -147,6 +154,6 @@ res = minimize(
     verbose=True,
 )
 
-save("nsga2", False)
+save("moead", False)
 
 Scatter().add(res.F).show()
