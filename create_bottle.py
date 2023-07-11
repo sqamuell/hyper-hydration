@@ -14,7 +14,7 @@ def PointsInCircum(r, z, n=15):
     y = r * np.sin(theta)  # y-coordinates
     z = z * np.ones_like(theta)  # z-coordinate (constant)
 
-    points = np.column_stack((x, y, z))  # Combine coordinates into a 2D array
+    points = np.column_stack((x, y, z))  # Combine coordinates into a 2D array``
     return np.array(points)
 
 
